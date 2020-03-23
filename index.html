@@ -68,6 +68,9 @@ a {
                 width: 100%;
                 object-fit:;
             }
+            img{
+                margin: 20px 0;
+            }
             .title{
                 z-index: 100;
                 position: fixed; padding: 1em 1em; top: 0;display: flex;
@@ -85,8 +88,6 @@ a {
             .resume div{margin-bottom: 4em;}
             .work{
                 padding: 0em 7em 7em 7em;
-            }
-            .content{
             }
             ul{
                 list-style-type: none;
@@ -115,7 +116,7 @@ a {
   <div class="title">
     <a href="index.html">Dieter Ravyts</a></div>
 <div class="nav">
-    <a href="javascript:void(0)" onclick="Open('work')">works</a>
+    <a href="javascript:void(0)" onclick="Open('work')" class="active">works</a>
       <a href="javascript:void(0)" onclick="Open('resume')">resume</a>
       <a href="javascript:void(0)" onclick="Open('writings')">writings</a>
   </div>
@@ -123,9 +124,8 @@ a {
     <div class="work">
       <div><img class="hor" src="19/1.untitled.jpg">
         <div>
-          <h5>Untitled (2019)</h5>
-          <p>35x 24,5cm<br>
-            color pencil on paper, framed</p>
+          <h5>Overview</h5>
+          <p></p>
         </div>
       </div>
       <div><img class="hor" src="19/2.untitled.jpg">
@@ -151,8 +151,9 @@ a {
       </div>
       <div><img class="hor" src="19/5.untitled.jpg">
         <div>
-          <h5>Overview</h5>
-          <p></p>
+          <h5>Untitled (2019)</h5>
+          <p>35x 24,5cm<br>
+            color pencil on paper, framed</p>
         </div>
       </div>
       <div><img class="ver" src="19/6.lettrist(potrait).jpg">
@@ -254,11 +255,9 @@ a {
         </div>
       </div>
       <div>
-        <div class="box">
-          <div><img src="19/16.overview.jpg"></div>
-          <div><img src="19/17.overview.jpg"></div>
-          <div><img src="19/18.overview.jpg"></div>
-          </div>
+          <img class="hor" src="19/16.overview.jpg">
+          <img class="hor" src="19/17.overview.jpg">
+          <img class="hor" src="19/18.overview.jpg">
         <div class="box">
           <div><img src="19/19.overview.jpg"></div>
           <div><img src="19/20.overview.jpg"></div>
@@ -357,7 +356,7 @@ a {
             <div><img src="18/13.bystander%20(c).jpg"></div>
         </div>
 
-            <img src="18/13.bystander%20(d).jpg">
+            <img class="hor" src="18/13.bystander%20(d).jpg">
         <div>
           <h5>‘Bystander’ 2018 </h5>
           <p>50 × 47 × 20 cm<br>Wood, glass, mirror, metal, silkscreen</p>
@@ -386,7 +385,6 @@ a {
     <a href="https://www.instagram.com/dieterravyts/?hl=en" target="_blank">IG: dieterravyts</a></p>
             </div>
         <div>
-      <h3>CV</h3>
       <h5>Solo Exhibitions</h5>
       <ul>
         <li>
@@ -429,7 +427,7 @@ a {
             $('.'+x).fadeIn();
             $('.'+x).siblings('div').hide();
         }
-        $('a').click(function(){
+        $('.nav a, .title a').click(function(){
           $(this).addClass('active');
           $(this).siblings('a').removeClass('active');
 window.scrollTo(0,0);
