@@ -38,6 +38,7 @@ body {
   height: 100%;
     width: 100%;
     font-family: Cambria;
+    user-select: none;
 }
 
 a {
@@ -67,8 +68,9 @@ a {
             .box img{
                 width: 100%;
                 object-fit:;
+                cursor: zoom-in;
             }
-            img{
+            .work img{
                 margin: 20px 0;
             }
             .title{
@@ -109,6 +111,42 @@ a {
             .hor{
                 width: 100%;
             }
+            .overlay{
+                display: none;
+                top: 0;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.7);
+                text-align: center;
+                
+            }
+            .overlay > div{
+                  white-space: nowrap;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+            }
+            .modal{        
+                display: inline-block;
+                vertical-align: middle;
+                width: auto;
+                height: 90vh;
+            }
+            #prev{
+            }
+            #prev,#next{
+                cursor: pointer;
+                font-size: 2rem;
+                margin: 1em;
+            }
+            #next{
+            }
+            .off{
+                color: lightgray;
+            }
             
             
         </style>
@@ -121,6 +159,10 @@ a {
       <a href="javascript:void(0)" onclick="Open('writings')">writings</a>
   </div>
   <div class="content">
+      <div class="overlay"><div>
+          <span id="prev">&larr;</span><div class="modal"></div><span id="next">&rarr;</span>
+          </div>
+      </div>
     <div class="work">
       <div><img class="hor" src="19/1.untitled.jpg">
         <div>
@@ -396,6 +438,7 @@ a {
         <li>2014 ‘Too Lame for Fame’ (with Jelle Spruyt) at These things take time, Ghent (BE) </li>
         <li>2013 ‘An introduction: A three letter word for disappointing your parents’ BLAUPUNT, Brussels (BE) </li>
       </ul>
+        </div><div>
       <h5>
         Group exhibitions</h5>
 
@@ -422,6 +465,8 @@ a {
   </div>
 </body>
     <script>
+        function modalClose(){
+            $(document).click(function(event){if(!$(event.target).closest(".box img, #prev, #next, .modal").length){$("body").find(".modal").empty();$("body").find(".overlay").hide();}})}
         
         function Open(x){
             $('.'+x).fadeIn();
@@ -432,10 +477,52 @@ a {
           $(this).siblings('a').removeClass('active');
 window.scrollTo(0,0);
         });
-             $(document).ready(function() {
-               
-             });
+        
+        function modalChange(x){
+                var prev = $(x).parent('div').prev('div').children('img');
+                var next = $(x).parent('div').next('div').children('img');
 
+                    if (prev.length > 0){
+                        $('#prev').on("click",function(){
+                $(".modal").html('<img src="'+$(prev).attr("src")+'" height="100%">');
+                modalChange(prev);
+                    });
+                        $(document).keydown(function(e){
+    switch (e.which){
+    case 37:    //left arrow key
+ $(".modal").html('<img src="'+$(prev).attr("src")+'" height="100%">');
+                modalChange(prev);        break;
+    }
+});
+                    }
+                    else{  $('#prev').off('click');
+            }
+                 if (next.length > 0){ 
+                $('#next').on("click",function(){
+                $(".modal").html('<img src="'+$(next).attr("src")+'" height="100%">');
+                modalChange(next);
+            });
+                     $(document).keydown(function(e){
+    switch (e.which){
+    case 39:    //right arrow key
+
+                $(".modal").html('<img src="'+$(next).attr("src")+'" height="100%">');
+                modalChange(next);        break;
+    }
+});
+                    }
+                    else{$('#next').off('click');
+            }         
+            }
+        
+        $(".box img ").click(function(){
+            $(".overlay").show();
+            $(".modal").html('<img src="'+$(this).attr("src")+'" height="100%">');
+            modalClose();
+            modalChange(this);
+            
+});
+            
         
 </script>
 </html>
