@@ -66,11 +66,10 @@ a {
             }
             
             .box img{
-                cursor: pointer;
-                display: none;
-            }
-            .box img:first-of-type{
-                display: block;
+                width: 100%;
+                object-fit:;
+                cursor: zoom-in;
+                position: absolute;
             }
             .work img{
                 margin: 20px 0;
@@ -112,6 +111,42 @@ a {
             .hor{
                 width: 100%;
             }
+            .overlay{
+                display: none;
+                top: 0;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.7);
+                text-align: center;
+                
+            }
+            .overlay > div{
+                  white-space: nowrap;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+            }
+            .modal{        
+                display: inline-block;
+                vertical-align: middle;
+                width: auto;
+                height: 90vh;
+            }
+            #prev{
+            }
+            #prev,#next{
+                cursor: pointer;
+                font-size: 2rem;
+                margin: 1em;
+            }
+            #next{
+            }
+            .off{
+                color: lightgray;
+            }
         </style>
 </head><body><div class="header">
   <div class="title">
@@ -122,6 +157,10 @@ a {
       <a href="javascript:void(0)" onclick="Open('writings')">writings</a>
   </div></div>
   <div class="content">
+      <div class="overlay"><div>
+          <span id="prev">&larr;</span><div class="modal"></div><span id="next">&rarr;</span>
+          </div>
+      </div>
     <div class="work">
       <div><img class="hor" src="19/1.untitled.jpg">
         <div>
@@ -201,7 +240,9 @@ a {
       </div>
       <div>
         <div class="box">
-          <img class="hor" src="19/11.lettrist%20(figure)(a).jpg"><img class="hor" src="19/11.lettrist%20(figure)(b).jpg"><img class="hor" src="19/11.lettrist%20(figure)(c).jpg">
+          <div><img class="hor" src="19/11.lettrist%20(figure)(a).jpg"></div>
+          <div><img class="hor" src="19/11.lettrist%20(figure)(b).jpg"></div>
+          <div><img class="hor" src="19/11.lettrist%20(figure)(c).jpg"></div>
         </div>
         <div>
           <h5>Lettrist (figure) (2019)</h5>
@@ -211,9 +252,9 @@ a {
       </div>
       <div>
         <div class="box">
-          <img class="ver" src="19/12.lettrist%20(figure)%20(a).jpg">
-          <img class="ver" src="19/12.lettrist%20(figure)%20(b).jpg">
-          <img class="ver" src="19/12.lettrist%20(figure)%20(c).jpg">
+          <div><img src="19/12.lettrist%20(figure)%20(a).jpg"></div>
+          <div><img src="19/12.lettrist%20(figure)%20(b).jpg"></div>
+          <div><img src="19/12.lettrist%20(figure)%20(c).jpg"></div>
         </div>
         <div>
           <h5>Lettrist (figure) (2019)
@@ -224,7 +265,9 @@ a {
       </div>
       <div>
         <div class="box">
-          <img class="ver" src="19/13.lettrist%20(figure)%20(a).jpg"><img class="ver" src="19/13.lettrist%20(figure)%20(b).jpg"><img class="ver" src="19/13.lettrist%20(figure)%20(c).jpg">
+          <div><img src="19/13.lettrist%20(figure)%20(a).jpg"></div>
+          <div><img src="19/13.lettrist%20(figure)%20(b).jpg"></div>
+          <div><img src="19/13.lettrist%20(figure)%20(c).jpg"></div>
         </div>
         <div>
           <h5>Lettrist (figure) (2019)</h5>
@@ -234,9 +277,9 @@ a {
       </div>
       <div>
         <div class="box">
-          <img class="ver" src="19/14.lettrist%20(figure)%20(a).jpg">
-          <img class="ver" src="19/14.lettrist%20(figure)%20(b).jpg">
-          <img class="ver" src="19/14.lettrist%20(figure)%20(c).jpg">
+          <div><img src="19/14.lettrist%20(figure)%20(a).jpg"></div>
+          <div><img src="19/14.lettrist%20(figure)%20(b).jpg"></div>
+          <div><img src="19/14.lettrist%20(figure)%20(c).jpg"></div>
         </div>
         <div>
           <h5>Lettrist (figure) (2019)</h5>
@@ -255,8 +298,10 @@ a {
           <img class="hor" src="19/16.overview.jpg">
           <img class="hor" src="19/17.overview.jpg">
           <img class="hor" src="19/18.overview.jpg">
-          <img class="ver" src="19/19.overview.jpg">
-          <img class="ver" src="19/20.overview.jpg">
+        <div class="box">
+          <div><img src="19/19.overview.jpg"></div>
+          <div><img src="19/20.overview.jpg"></div>
+        </div>
         <div>
           <h5>Instalation shot ‘Lettrism’ at Social Harmony</h5>
           <p></p>
@@ -346,11 +391,12 @@ a {
       </div>
       <div>
         <div class="box">
-            <img class="hor" src="18/13.bystander%20(a).jpg">
-            <img class="hor" src="18/13.bystander%20(b).jpg">
-            <img class="hor" src="18/13.bystander%20(c).jpg">
-            <img class="ver" src="18/13.bystander%20(d).jpg">        </div>
+            <div><img src="18/13.bystander%20(a).jpg"></div>
+            <div><img src="18/13.bystander%20(b).jpg"></div>
+            <div><img src="18/13.bystander%20(c).jpg"></div>
+        </div>
 
+            <img class="hor" src="18/13.bystander%20(d).jpg">
         <div>
           <h5>‘Bystander’ 2018 </h5>
           <p>50 × 47 × 20 cm<br>Wood, glass, mirror, metal, silkscreen</p>
@@ -467,17 +513,11 @@ window.scrollTo(0,0);
             }         
             }
         
-        $(".box").click(function(){
-            var aanwezig = $(this).children('img:visible');
-            
-            if (aanwezig.is(':last-of-type')){
-                $(this).children(':first-of-type').css('display','block');  
-                            aanwezig.hide();
-            }
-            else{
-            aanwezig.hide();
-            aanwezig.next('img').css('display','block');  
-            }
+        $(".box img ").click(function(){
+            $(".overlay").show();
+            $(".modal").html('<img src="'+$(this).attr("src")+'" height="100%">');
+            modalClose();
+            modalChange(this);
             
 });
             
