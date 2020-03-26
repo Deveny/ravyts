@@ -90,3 +90,13 @@ a {
             .hor{
                 width: 100%;
             }
+
+            .counter{
+                position: absolute;
+                text-align: right;
+                display: block;
+                float: left;
+            }
+            .boxnav span{
+                margin-right: 0.5em;
+            }

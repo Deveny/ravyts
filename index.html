@@ -102,21 +102,26 @@
       </div>
       <div>
         <div class="box">
-          <img class="hor" src="19/11.lettrist%20(figure)(a).jpg"><img class="hor" src="19/11.lettrist%20(figure)(b).jpg"><img class="hor" src="19/11.lettrist%20(figure)(c).jpg">
+            <div class="boxnav"><span class="prev">&larr;</span><span class="next">&rarr;</span></div>
+            <img class="hor" src="19/11.lettrist%20(figure)(a).jpg" alt="1">
+            <img class="hor" src="19/11.lettrist%20(figure)(b).jpg" alt="2">
+            <img class="hor" src="19/11.lettrist%20(figure)(c).jpg" alt="3">
         </div>
         <div>
+            <div class="counter"><span class="nr">1</span>/<span>3</span></div>
           <h5>Lettrist (figure) (2019)</h5>
           <p>Variable dimensions <br>
             Acrylic on wood </p>
         </div>
       </div>
       <div>
-        <div class="box">
-          <img class="ver" src="19/12.lettrist%20(figure)%20(a).jpg">
-          <img class="ver" src="19/12.lettrist%20(figure)%20(b).jpg">
-          <img class="ver" src="19/12.lettrist%20(figure)%20(c).jpg">
+        <div class="box"><div class="boxnav"><span class="prev">&larr;</span><span class="next">&rarr;</span></div>
+          <img class="ver" src="19/12.lettrist%20(figure)%20(a).jpg" alt="1">
+          <img class="ver" src="19/12.lettrist%20(figure)%20(b).jpg" alt="2">
+          <img class="ver" src="19/12.lettrist%20(figure)%20(c).jpg" alt="3">
         </div>
         <div>
+        <div class="counter"><span class="nr">1</span>/<span>3</span></div>
           <h5>Lettrist (figure) (2019)
           </h5>
           <p>Variable dimensions<br>
@@ -124,22 +129,26 @@
         </div>
       </div>
       <div>
-        <div class="box">
-          <img class="ver" src="19/13.lettrist%20(figure)%20(a).jpg"><img class="ver" src="19/13.lettrist%20(figure)%20(b).jpg"><img class="ver" src="19/13.lettrist%20(figure)%20(c).jpg">
+        <div class="box"><div class="boxnav"><span class="prev">&larr;</span><span class="next">&rarr;</span></div>
+          <img class="ver" src="19/13.lettrist%20(figure)%20(a).jpg" alt="1">
+            <img class="ver" src="19/13.lettrist%20(figure)%20(b).jpg" alt="2">
+            <img class="ver" src="19/13.lettrist%20(figure)%20(c).jpg" alt="3">
         </div>
         <div>
+                        <div class="counter"><span class="nr">1</span>/<span>3</span></div>
           <h5>Lettrist (figure) (2019)</h5>
           <p>Variable dimensions <br>
             Acrylic on wood </p>
         </div>
       </div>
       <div>
-        <div class="box">
-          <img class="ver" src="19/14.lettrist%20(figure)%20(a).jpg">
-          <img class="ver" src="19/14.lettrist%20(figure)%20(b).jpg">
-          <img class="ver" src="19/14.lettrist%20(figure)%20(c).jpg">
+        <div class="box"><div class="boxnav"><span class="prev">&larr;</span><span class="next">&rarr;</span></div>
+          <img class="ver" src="19/14.lettrist%20(figure)%20(a).jpg" alt="1">
+          <img class="ver" src="19/14.lettrist%20(figure)%20(b).jpg" alt="2">
+          <img class="ver" src="19/14.lettrist%20(figure)%20(c).jpg" alt="3">
         </div>
         <div>
+                        <div class="counter"><span class="nr">1</span>/<span>3</span></div>
           <h5>Lettrist (figure) (2019)</h5>
           <p>Variable dimensions <br>
             Acrylic on wood</p>
@@ -244,13 +253,14 @@
         </div>
       </div>
       <div>
-        <div class="box">
-            <img class="hor" src="18/13.bystander%20(a).jpg">
-            <img class="hor" src="18/13.bystander%20(b).jpg">
-            <img class="hor" src="18/13.bystander%20(c).jpg">
-            <img class="ver" src="18/13.bystander%20(d).jpg">        </div>
-
+        <div class="box"><div class="boxnav"><span class="prev">&larr;</span><span class="next">&rarr;</span></div>
+            <img class="hor" src="18/13.bystander%20(a).jpg" alt="1">
+            <img class="hor" src="18/13.bystander%20(b).jpg" alt="2">
+            <img class="hor" src="18/13.bystander%20(c).jpg" alt="3">
+            <img class="ver" src="18/13.bystander%20(d).jpg" alt="4">        
+          </div>
         <div>
+                        <div class="counter"><span class="nr">1</span>/<span>4</span></div>
           <h5>‘Bystander’ 2018 </h5>
           <p>50 × 47 × 20 cm<br>Wood, glass, mirror, metal, silkscreen</p>
         </div>
@@ -323,63 +333,69 @@
             $('.'+x).fadeIn();
             $('.'+x).siblings('div').hide();
         }
+            
+        
+        function counTer(x){
+            var cijfer= $(x).siblings('img:visible').attr('alt');
+            $(x).closest('.box').next('div').find('span.nr').text(cijfer);
+        }
+        
+        
+        $( document ).ready(function() {
+     
         $('.nav a, .title a').click(function(){
           $(this).addClass('active');
           $(this).siblings('a').removeClass('active');
 window.scrollTo(0,0);
         });
+    
+    
+        $('.counter').each(function() {
+        var x= $(this).parent('div').siblings('.box').children('img:visible');
+        var w= x.width();
+        $(this).width(w);
+});  
         
-        function modalChange(x){
-                var prev = $(x).parent('div').prev('div').children('img');
-                var next = $(x).parent('div').next('div').children('img');
-
-                    if (prev.length > 0){
-                        $('#prev').on("click",function(){
-                $(".modal").html('<img src="'+$(prev).attr("src")+'" height="100%">');
-                modalChange(prev);
-                    });
-                        $(document).keydown(function(e){
-    switch (e.which){
-    case 37:    //left arrow key
- $(".modal").html('<img src="'+$(prev).attr("src")+'" height="100%">');
-                modalChange(prev);        break;
-    }
-});
-                    }
-                    else{  $('#prev').off('click');
-            }
-                 if (next.length > 0){ 
-                $('#next').on("click",function(){
-                $(".modal").html('<img src="'+$(next).attr("src")+'" height="100%">');
-                modalChange(next);
-            });
-                     $(document).keydown(function(e){
-    switch (e.which){
-    case 39:    //right arrow key
-
-                $(".modal").html('<img src="'+$(next).attr("src")+'" height="100%">');
-                modalChange(next);        break;
-    }
-});
-                    }
-                    else{$('#next').off('click');
-            }         
-            }
-        
-        $(".box").click(function(){
-            var aanwezig = $(this).children('img:visible');
+        $(".box img").click(function(){
+            var aanwezig = $(this).parent('.box').children('img:visible');
             
             if (aanwezig.is(':last-of-type')){
-                $(this).children(':first-of-type').css('display','block');  
+                $(this).parent('.box').children(':first-of-type').css('display','block');  
                             aanwezig.hide();
             }
             else{
             aanwezig.hide();
             aanwezig.next('img').css('display','block');  
             }
-            
+            counTer(this);     
 });
+                $(".next").click(function(){
+                   var aanwezig = $(this).closest('.box').children('img:visible');
             
-        
+            if (aanwezig.is(':last-of-type')){
+                $(this).closest('.box').children(':first-of-type').css('display','block');  
+                            aanwezig.hide();
+            }
+            else{
+            aanwezig.hide();
+            aanwezig.next('img').css('display','block');  
+            } 
+                    counTer(aanwezig);
+                });
+        $(".prev").click(function(){
+                   var aanwezig = $(this).closest('.box').children('img:visible');
+            
+            if (aanwezig.is(':first-of-type')){
+                $(this).closest('.box').children(':last-of-type').css('display','block');  
+                            aanwezig.hide();
+            }
+            else{
+            aanwezig.hide();
+            aanwezig.prev('img').css('display','block');  
+            } 
+                                counTer(aanwezig);
+                });
+});
+       
 </script>
 </html>
