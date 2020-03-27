@@ -78,6 +78,7 @@ a {
             }
             .box{
                 max-height: 95vh;
+                position: relative;
             }
             .work > div{
                 margin: 0em 5em 10vw 5em;
@@ -95,7 +96,6 @@ a {
                 position: absolute;
                 text-align: right;
                 display: block;
-                float: left;
             }
             .boxnav span{
                 margin-right: 0.5em;

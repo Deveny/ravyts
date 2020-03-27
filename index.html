@@ -15,6 +15,7 @@
           <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <style>
+            
         </style>
 </head><body><div class="header">
   <div class="title">
@@ -110,6 +111,7 @@
         <div>
             <div class="counter"><span class="nr">1</span>/<span>3</span></div>
           <h5>Lettrist (figure) (2019)</h5>
+                                    
           <p>Variable dimensions <br>
             Acrylic on wood </p>
         </div>
@@ -396,6 +398,12 @@ window.scrollTo(0,0);
                                 counTer(aanwezig);
                 });
 });
-       
+       $( window ).resize(function() {
+ $('.counter').each(function() {
+        var x= $(this).parent('div').siblings('.box').children('img:visible');
+        var w= x.width();
+        $(this).width(w);
+});  
+       });
 </script>
 </html>
