@@ -89,16 +89,16 @@ padding: 0; margin: 0;
                 width: 100%;
             }
 
-            
+        
             .counter{
-                position: absolute;
+                height: 0;
                 text-align: right;
                 display: block;
+            }
+.hr,.vr{
+                max-width: 100%;
             }
             .boxnav span{
                 margin-right: 0.5em;
             }
             
-            .counter + h5{
-                margin-top: 1em;
-            }

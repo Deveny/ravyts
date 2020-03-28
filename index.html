@@ -102,55 +102,57 @@
         </div>
       </div>
       <div>
-        <div class="box">
             <div class="boxnav"><span class="prev">&larr;</span><span class="next">&rarr;</span></div>
+        <div class="box">
             <img class="hor" src="19/11.lettrist%20(figure)(a).jpg" alt="1">
             <img class="hor" src="19/11.lettrist%20(figure)(b).jpg" alt="2">
             <img class="hor" src="19/11.lettrist%20(figure)(c).jpg" alt="3">
         </div>
+                                                 <div class="counter hr"><span class="nr">1</span>/<span>3</span></div> 
         <div>
-            <div class="counter"><span class="nr">1</span>/<span>3</span></div>
           <h5>Lettrist (figure) (2019)</h5>
-                                    
           <p>Variable dimensions <br>
             Acrylic on wood </p>
         </div>
       </div>
       <div>
-        <div class="box"><div class="boxnav"><span class="prev">&larr;</span><span class="next">&rarr;</span></div>
+                      <div class="boxnav"><span class="prev">&larr;</span><span class="next">&rarr;</span></div>
+        <div class="box">
           <img class="ver" src="19/12.lettrist%20(figure)%20(a).jpg" alt="1">
           <img class="ver" src="19/12.lettrist%20(figure)%20(b).jpg" alt="2">
           <img class="ver" src="19/12.lettrist%20(figure)%20(c).jpg" alt="3">
         </div>
+                                                          <div class="counter vr"><span class="nr">1</span>/<span>3</span></div>
         <div>
-        <div class="counter"><span class="nr">1</span>/<span>3</span></div>
-          <h5>Lettrist (figure) (2019)
-          </h5>
+          <h5>Lettrist (figure) (2019)</h5>
           <p>Variable dimensions<br>
             Acrylic on wood </p>
         </div>
       </div>
       <div>
-        <div class="box"><div class="boxnav"><span class="prev">&larr;</span><span class="next">&rarr;</span></div>
+          <div class="boxnav"><span class="prev">&larr;</span><span class="next">&rarr;</span></div>
+        <div class="box">
           <img class="ver" src="19/13.lettrist%20(figure)%20(a).jpg" alt="1">
             <img class="ver" src="19/13.lettrist%20(figure)%20(b).jpg" alt="2">
             <img class="ver" src="19/13.lettrist%20(figure)%20(c).jpg" alt="3">
         </div>
+                                              <div class="counter vr"><span class="nr">1</span>/<span>3</span></div>
+
         <div>
-                        <div class="counter"><span class="nr">1</span>/<span>3</span></div>
           <h5>Lettrist (figure) (2019)</h5>
           <p>Variable dimensions <br>
             Acrylic on wood </p>
         </div>
       </div>
-      <div>
-        <div class="box"><div class="boxnav"><span class="prev">&larr;</span><span class="next">&rarr;</span></div>
+      <div><div class="boxnav"><span class="prev">&larr;</span><span class="next">&rarr;</span></div>
+        <div class="box">
           <img class="ver" src="19/14.lettrist%20(figure)%20(a).jpg" alt="1">
           <img class="ver" src="19/14.lettrist%20(figure)%20(b).jpg" alt="2">
           <img class="ver" src="19/14.lettrist%20(figure)%20(c).jpg" alt="3">
         </div>
+                                              <div class="counter vr"><span class="nr">1</span>/<span>3</span></div>
+
         <div>
-                        <div class="counter"><span class="nr">1</span>/<span>3</span></div>
           <h5>Lettrist (figure) (2019)</h5>
           <p>Variable dimensions <br>
             Acrylic on wood</p>
@@ -255,14 +257,15 @@
         </div>
       </div>
       <div>
-        <div class="box"><div class="boxnav"><span class="prev">&larr;</span><span class="next">&rarr;</span></div>
+          <div class="boxnav"><span class="prev">&larr;</span><span class="next">&rarr;</span></div>
+        <div class="box">
             <img class="hor" src="18/13.bystander%20(a).jpg" alt="1">
             <img class="hor" src="18/13.bystander%20(b).jpg" alt="2">
             <img class="hor" src="18/13.bystander%20(c).jpg" alt="3">
-            <img class="ver" src="18/13.bystander%20(d).jpg" alt="4">        
+            <img class="ver" src="18/13.bystander%20(d).jpg" alt="4">   
           </div>
+                                              <div class="counter hr"><span class="nr">1</span>/<span>4</span></div>
         <div>
-                        <div class="counter"><span class="nr">1</span>/<span>4</span></div>
           <h5>‘Bystander’ 2018 </h5>
           <p>50 × 47 × 20 cm<br>Wood, glass, mirror, metal, silkscreen</p>
         </div>
@@ -338,25 +341,20 @@
             
         
         function counTer(x){
-            var cijfer= $(x).siblings('img:visible').attr('alt');
-            $(x).closest('.box').next('div').find('span.nr').text(cijfer);
+            var cijfer= $(x).parent('.box').children('img:visible').attr('alt');
+            $(x).parent('.box').next('.counter').find('span.nr').text(cijfer);
         }
         
-        
         $( document ).ready(function() {
-     
+       
+        
         $('.nav a, .title a').click(function(){
           $(this).addClass('active');
           $(this).siblings('a').removeClass('active');
 window.scrollTo(0,0);
         });
     
-    
-        $('.counter').each(function() {
-        var x= $(this).parent('div').siblings('.box').children('img:visible');
-        var w= x.width();
-        $(this).width(w);
-});  
+   
         
         $(".box img").click(function(){
             var aanwezig = $(this).parent('.box').children('img:visible');
@@ -372,10 +370,10 @@ window.scrollTo(0,0);
             counTer(this);     
 });
                 $(".next").click(function(){
-                   var aanwezig = $(this).closest('.box').children('img:visible');
+                   var aanwezig = $(this).parent().next('.box').children('img:visible');
             
             if (aanwezig.is(':last-of-type')){
-                $(this).closest('.box').children(':first-of-type').css('display','block');  
+                $(this).parent().next('.box').children(':first-of-type').css('display','block');  
                             aanwezig.hide();
             }
             else{
@@ -385,10 +383,10 @@ window.scrollTo(0,0);
                     counTer(aanwezig);
                 });
         $(".prev").click(function(){
-                   var aanwezig = $(this).closest('.box').children('img:visible');
+                   var aanwezig = $(this).parent().next('.box').children('img:visible');
             
             if (aanwezig.is(':first-of-type')){
-                $(this).closest('.box').children(':last-of-type').css('display','block');  
+                $(this).parent().next('.box').children(':last-of-type').css('display','block');  
                             aanwezig.hide();
             }
             else{
@@ -398,12 +396,5 @@ window.scrollTo(0,0);
                                 counTer(aanwezig);
                 });
 });
-       $( window ).resize(function() {
- $('.counter').each(function() {
-        var x= $(this).parent('div').siblings('.box').children('img:visible');
-        var w= x.width();
-        $(this).width(w);
-});  
-       });
 </script>
 </html>

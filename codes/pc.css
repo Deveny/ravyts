@@ -50,8 +50,9 @@ a {
             .box img:first-of-type{
                 display: block;
             }
-            .work img{
+            img{
                 margin: 20px 0;
+                position: relative;
             }
             .header{
                 position: relative;
@@ -93,10 +94,15 @@ a {
             }
 
             .counter{
-                position: absolute;
+                height: 0;
                 text-align: right;
                 display: block;
             }
+.hr{
+                max-width: 100%;
+            }
+.vr{ width: 60vh;}
             .boxnav span{
                 margin-right: 0.5em;
             }
+
