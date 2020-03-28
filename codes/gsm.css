@@ -96,9 +96,10 @@ padding: 0; margin: 0;
                 text-align: right;
                 display: block;
             }
-.hr,.vr{
+.hr{
                 max-width: 100%;
             }
+.vr{ max-width: 60vh;}
             .boxnav span{
                 margin-right: 0.5em;
             }
