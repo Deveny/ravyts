@@ -61,7 +61,7 @@ a {
             }
             .resume, .writings{
                 display: none;
-                padding: 2em;
+                padding: 4em;
             }
             .resume div{margin-bottom: 2em;}
             .work{
@@ -79,7 +79,7 @@ padding: 0; margin: 0;
                 max-height: 95vh;
             }
             .work > div{
-                margin: 2em 0em 4em 0em;
+                margin: 2em 1em 4em 1em;
             }
             
             .ver{
