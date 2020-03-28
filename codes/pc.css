@@ -101,7 +101,7 @@ a {
 .hr{
                 max-width: 100%;
             }
-.vr{ width: 60vh;}
+.vr{ max-width: 60vh;}
             .boxnav span{
                 margin-right: 0.5em;
             }

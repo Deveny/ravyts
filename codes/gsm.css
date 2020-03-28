@@ -46,8 +46,9 @@ a {
             .box img:first-of-type{
                 display: block;
             }
-            .work img{
-                margin: 5px 0;
+              img{
+                margin: 10px 0;
+                position: relative;
             }
             .title{
                 z-index: 100;
@@ -64,7 +65,7 @@ a {
             }
             .resume div{margin-bottom: 2em;}
             .work{
-                padding: 1em;
+                padding: 2em;
             }
             ul{
                 list-style-type: none;
