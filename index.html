@@ -14,7 +14,7 @@
     <link rel="stylesheet" media="screen and (min-width: 1000px)" href="codes/pc.css" />
             <link rel="stylesheet" media="screen and (min-width: 768px)" href="codes/cambria.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
         <style>
             
@@ -347,56 +347,55 @@
             $(x).parent('.box').next('.counter').find('span.nr').text(cijfer);
         }
         
+        function goNext(a){ 
+            if (a.is(':last-of-type')){
+                $(a).parent('.box').children(':first-of-type').css('display','block');  
+                            a.hide();
+            }
+            else{
+            a.hide();
+            a.next('img').css('display','block');  
+            }
+                          }
+        function goPrev(b){
+            if (b.is(':first-of-type')){
+                $(b).parent('.box').children(':last-of-type').css('display','block');  
+                            b.hide();
+            }
+            else{
+            b.hide();
+            b.prev('img').css('display','block');  
+            } }
+        
+        
         $( document ).ready(function() {
        
         
         $('.nav a, .title a').click(function(){
           $(this).addClass('active');
           $(this).siblings('a').removeClass('active');
-window.scrollTo(0,0);
+            window.scrollTo(0,0);
         });
     
-   
         
         $(".box img").click(function(){
             var aanwezig = $(this).parent('.box').children('img:visible');
-            
-            if (aanwezig.is(':last-of-type')){
-                $(this).parent('.box').children(':first-of-type').css('display','block');  
-                            aanwezig.hide();
-            }
-            else{
-            aanwezig.hide();
-            aanwezig.next('img').css('display','block');  
-            }
-            counTer(this);     
+            goNext(aanwezig);
+            counTer(aanwezig);     
 });
-                $(".next").click(function(){
-                   var aanwezig = $(this).parent().next('.box').children('img:visible');
-            
-            if (aanwezig.is(':last-of-type')){
-                $(this).parent().next('.box').children(':first-of-type').css('display','block');  
-                            aanwezig.hide();
-            }
-            else{
-            aanwezig.hide();
-            aanwezig.next('img').css('display','block');  
-            } 
-                    counTer(aanwezig);
+        $(".next").click(function(){
+            var aanwezig = $(this).parent().next('.box').children('img:visible');
+            goNext(aanwezig);
+            counTer(aanwezig);
                 });
+            
         $(".prev").click(function(){
-                   var aanwezig = $(this).parent().next('.box').children('img:visible');
-            
-            if (aanwezig.is(':first-of-type')){
-                $(this).parent().next('.box').children(':last-of-type').css('display','block');  
-                            aanwezig.hide();
-            }
-            else{
-            aanwezig.hide();
-            aanwezig.prev('img').css('display','block');  
-            } 
-                                counTer(aanwezig);
+            var aanwezig = $(this).parent().next('.box').children('img:visible');
+            goPrev(aanwezig);
+            counTer(aanwezig);
                 });
 });
+        
+
 </script>
 </html>
