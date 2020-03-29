@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <title>Dieter Ravyts</title>
         <link rel="icon" href="" type="image/jpg">
-        <meta name="keywords" content="">
-        <meta name="author" content="Deveny Faruque - deve1000">
+        <meta name="keywords" content="Dieter Ravyts, art">
+        <meta name="author" content="deve1000">
         <meta name="robots" content="index, follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -14,10 +14,7 @@
     <link rel="stylesheet" media="screen and (min-width: 1000px)" href="codes/pc.css" />
             <link rel="stylesheet" media="screen and (min-width: 768px)" href="codes/cambria.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
         <style>
-            
         </style>
 </head><body><div class="header">
   <div class="title">
@@ -329,73 +326,17 @@
             </div>
     </div>
     <div class="writings">
-      <p>under construction</p></div>
+      <p>under construction</p>
+      </div>
   </div>
 </body>
-    <script>
-        function modalClose(){
-            $(document).click(function(event){if(!$(event.target).closest(".box img, #prev, #next, .modal").length){$("body").find(".modal").empty();$("body").find(".overlay").hide();}})}
-        
-        function Open(x){
-            $('.'+x).fadeIn();
-            $('.'+x).siblings('div').hide();
-        }
-            
-        
-        function counTer(x){
-            var cijfer= $(x).parent('.box').children('img:visible').attr('alt');
-            $(x).parent('.box').next('.counter').find('span.nr').text(cijfer);
-        }
-        
-        function goNext(a){ 
-            if (a.is(':last-of-type')){
-                $(a).parent('.box').children(':first-of-type').css('display','block');  
-                            a.hide();
-            }
-            else{
-            a.hide();
-            a.next('img').css('display','block');  
-            }
-                          }
-        function goPrev(b){
-            if (b.is(':first-of-type')){
-                $(b).parent('.box').children(':last-of-type').css('display','block');  
-                            b.hide();
-            }
-            else{
-            b.hide();
-            b.prev('img').css('display','block');  
-            } }
-        
-        
-        $( document ).ready(function() {
-       
-        
-        $('.nav a, .title a').click(function(){
-          $(this).addClass('active');
-          $(this).siblings('a').removeClass('active');
-            window.scrollTo(0,0);
-        });
-    
-        
-        $(".box img").click(function(){
-            var aanwezig = $(this).parent('.box').children('img:visible');
-            goNext(aanwezig);
-            counTer(aanwezig);     
-});
-        $(".next").click(function(){
-            var aanwezig = $(this).parent().next('.box').children('img:visible');
-            goNext(aanwezig);
-            counTer(aanwezig);
-                });
-            
-        $(".prev").click(function(){
-            var aanwezig = $(this).parent().next('.box').children('img:visible');
-            goPrev(aanwezig);
-            counTer(aanwezig);
-                });
-});
-        
-
+    <script>function modalClose(){$(document).click(function(event){if(!$(event.target).closest(".box img, #prev, #next, .modal").length){$("body").find(".modal").empty();$("body").find(".overlay").hide()}})}
+function Open(x){$('.'+x).fadeIn();$('.'+x).siblings('div').hide()}
+function counTer(x){var cijfer=$(x).parent('.box').children('img:visible').attr('alt');$(x).parent('.box').next('.counter').find('span.nr').text(cijfer)}
+function goNext(a){if(a.is(':last-of-type')){$(a).parent('.box').children(':first-of-type').css('display','block');a.hide()}
+else{a.hide();a.next('img').css('display','block')}}
+function goPrev(b){if(b.is(':first-of-type')){$(b).parent('.box').children(':last-of-type').css('display','block');b.hide()}
+else{b.hide();b.prev('img').css('display','block')}}
+$(document).ready(function(){$('.nav a, .title a').click(function(){$(this).addClass('active');$(this).siblings('a').removeClass('active');window.scrollTo(0,0)});$(".box img").click(function(){var aanwezig=$(this).parent('.box').children('img:visible');goNext(aanwezig);counTer(aanwezig)});$(".next").click(function(){var aanwezig=$(this).parent().next('.box').children('img:visible');goNext(aanwezig);counTer(aanwezig)});$(".prev").click(function(){var aanwezig=$(this).parent().next('.box').children('img:visible');goPrev(aanwezig);counTer(aanwezig)})})
 </script>
 </html>
